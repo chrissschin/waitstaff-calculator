@@ -25,14 +25,14 @@
   <section id="customer-charges">
     <h2>Customer Charges</h2>
     <h3>Subtotal: {{ mealDetail.base }}</h3>
-    <h3>Tip: {{ calcTip }}</h3>
-    <h3>Total: {{ totalCharges }}</h3>
+    <h3>Tip: {{ tip }}</h3>
+    <h3>Total: {{ total }}</h3>
   </section>
   <section id="earnings-info">
     <h2>My Earings Info</h2>
-    <h3 ng-model="tipTotal">Tip Total {{ tipTotal }}</h3>
-    <h3 ng-model="mealCount">Meal Count {{ mealCount }}</h3>
-    <h3>Average Tip Per Meal:</h3>
+    <h3 ng-model="tipTotal">Tip Total: {{ tipTotal }}</h3>
+    <h3 ng-model="mealCount">Meal Count: {{ mealCount }}</h3>
+    <h3 ng-model="avg">Average Tip Per Meal: {{ avg }}</h3>
   </section>
 
 </body>
