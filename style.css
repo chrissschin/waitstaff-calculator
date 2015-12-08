@@ -1,0 +1,35 @@
+
+header {
+  margin-bottom: 20px;
+}
+
+h2 {
+  border-bottom: 5px solid #337ab7;
+  border-radius: 5px;
+  padding-bottom: 5px;
+
+}
+
+header {
+  text-align: center;
+}
+
+input {
+  display: block;
+
+}
+
+.num {
+    width: 220px;
+}
+
+#meal-details,
+#cust-earn {
+  border: 1px solid black;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+/*#cust-earn {
+  margin-left: 5px;
+}*/

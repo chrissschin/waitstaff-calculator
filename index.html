@@ -4,39 +4,48 @@
   <meta charset="UTF-8">
   <title>Waitstaff Calculator</title>
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
   <script src="node_modules/angular/angular.min.js" type="text/javascript"></script>
   <script src="myApp.js"></script>
 </head>
-<body ng-controller="mainCtrl">
+<body ng-controller="mainCtrl" class="container">
   <header>
     <h1>Waistaff Calculator</h1>
   </header>
-  <section id="meal-details">
+  <section id="meal-details" class="col-sm-5">
     <form ng-submit="submitForm();">
     <h2>Enter the Meal Details</h2>
-    <h3>Base Meal Price $ <input type="number" step="0.01" ng-model='mealPrice' required></h3>
-    <h3>Tax Rate % <input type="number" ng-model='taxRate' required></h3>
-    <h3>Tip Percentage % <input type="number" ng-model='tipPer' required></h3>
+    <h3>Base Meal Price $ <input class="num" type="number" step="0.01" ng-model='mealPrice' required></h3>
+    <h3>Tax Rate % <input class="num" type="number" ng-model='taxRate' required></h3>
+    <h3>Tip Percentage % <input class="num" type="number" ng-model='tipPer' required></h3>
 
     <div>
-      <input type="submit" value="Submit">
-      <input type="reset" value="Cancel">
+      <input class="btn btn-primary" type="submit" value="Submit">
+      <input class="btn btn-primary" type="reset" value="Cancel">
     </div>
 
     </form>
   </section>
-  <section id="customer-charges">
+
+  <div class="col-sm-1">
+
+  </div>
+
+
+<section class="col-sm-6" id="cust-earn">
+  <div id="customer-charges">
     <h2>Customer Charges</h2>
-    <h3>Subtotal: {{ mealDetail.base }}</h3>
-    <h3>Tip: {{ tip.toFixed(2) }}</h3>
-    <h3>Total: {{ total.toFixed(2) }}</h3>
-  </section>
-  <section id="earnings-info">
+    <h3>Subtotal: $ {{ mealDetail.base }}</h3>
+    <h3>Tip: $ {{ tip.toFixed(2) }}</h3>
+    <h3>Total: $ {{ total.toFixed(2) }}</h3>
+  </div>
+  <div id="earnings-info">
     <h2>My Earings Info</h2>
-    <h3 ng-model="tipTotal">Tip Total: {{ tipTotal.tofixed(2) }}</h3>
-    <h3 ng-model="mealCount">Meal Count: {{ mealCount }}</h3>
-    <h3 ng-model="averageTip">Average Tip Per Meal: {{ (tipTotal/mealCount).toFixed(2) }}</h3>
-  </section>
+    <h3 ng-model="tipTotal">Tip Total: $ {{ tipTotal.tofixed(2) }}</h3>
+    <h3 ng-model="mealCount">Meal Count: $ {{ mealCount }}</h3>
+    <h3 ng-model="averageTip">Average Tip Per Meal: $ {{ (tipTotal/mealCount).toFixed(2) }}</h3>
+  </div>
+</section>
 
 </body>
 </html>
