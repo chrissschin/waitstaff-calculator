@@ -5,7 +5,6 @@ angular.module("myApp", [])
 
 
     $scope.submitForm = function() {
-      console.log("hello");
       $scope.mealDetail.base = $scope.mealPrice;
       $scope.mealDetail.tax = ($scope.taxRate / 100).toFixed(2);
       $scope.mealDetail.tipPercent = ($scope.tipPer / 100).toFixed(2);
@@ -14,6 +13,7 @@ angular.module("myApp", [])
       $scope.mealPrice = '';
       $scope.taxRate = '';
       $scope.tipPer = '';
+      $scope.mealCount++;
     };
 
 
@@ -26,12 +26,13 @@ angular.module("myApp", [])
     $scope.tipAndTotal = function(total) {
       $scope.tip = total * $scope.mealDetail.tipPercent;
       $scope.total = $scope.tip + total;
+      $scope.tipTotal+= $scope.tip;
     };
 
 
     //earnings info
     $scope.tipTotal = 0;
     $scope.mealCount = 0;
-    $scope.avg = ($scope.tipTotal/$scope.mealCount).toFixed(2);
+    // $scope.averageTip = $scope.tipTotal/$scope.mealCount;
 
   });
