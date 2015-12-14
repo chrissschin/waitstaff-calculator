@@ -1,0 +1,26 @@
+
+
+<section class="col-sm-6" id="cust-earn">
+<div id="customer-charges">
+  <h2>Customer Charges</h2>
+  <h3>Subtotal: $ {{ mealDetail.base }}</h3>
+  <h3>Tip: $ {{ tip.toFixed(2) }}</h3>
+  <h3>Total: $ {{ total.toFixed(2) }}</h3>
+</div>
+<div id="earnings-info">
+  <h2>My Earings Info</h2>
+  <h3 ng-model="tipTotal">Tip Total: $ {{ tipTotal.tofixed(2) }}</h3>
+  <h3 ng-model="mealCount">Meal Count: $ {{ mealCount }}</h3>
+  <h3 ng-model="averageTip">Average Tip Per Meal: $ {{ (tipTotal/mealCount).toFixed(2) }}</h3>
+</div>
+</section>
+
+
+<section id="meal-details" class="col-sm-6">
+<div id="earnings-info">
+  <h2>My Earings Info</h2>
+  <h3 ng-model="tipTotal">Tip Total: $ {{ tipTotal.tofixed(2) }}</h3>
+  <h3 ng-model="mealCount">Meal Count: $ {{ mealCount }}</h3>
+  <h3 ng-model="averageTip">Average Tip Per Meal: $ {{ (tipTotal/mealCount).toFixed(2) }}</h3>
+</div>
+</section>

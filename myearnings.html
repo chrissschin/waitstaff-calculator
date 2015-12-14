@@ -1,0 +1,8 @@
+<section id="meal-details" class="col-sm-12">
+<div id="earnings-info">
+  <h2>My Earings Info</h2>
+  <h3 ng-model="tipTotal">Tip Total: $ {{ tipTotal.tofixed(2) }}</h3>
+  <h3 ng-model="mealCount">Meal Count:  {{ mealCount }}</h3>
+  <h3 ng-model="averageTip">Average Tip Per Meal: $ {{ (tipTotal/mealCount).toFixed(2) }}</h3>
+</div>
+</section>
