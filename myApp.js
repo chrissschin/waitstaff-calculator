@@ -1,4 +1,4 @@
-angular.module("myApp", [])
+angular.module("myApp", ['ngRoute'])
   .controller("mainCtrl", function($scope){
 
     $scope.mealDetail = {};
