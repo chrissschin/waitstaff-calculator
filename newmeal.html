@@ -1,9 +1,10 @@
 <section id="meal-details" class="col-sm-12">
-  <form ng-submit="submitForm();">
+  <form ng-submit="main.submitForm();">
   <h2>Enter the Meal Details</h2>
-  <h3>Base Meal Price $ <input class="num" type="number" step="0.01" ng-model='mealPrice' required></h3>
-  <h3>Tax Rate % <input class="num" type="number" ng-model='taxRate' required></h3>
-  <h3>Tip Percentage % <input class="num" type="number" ng-model='tipPer' required></h3>
+  <h3>Base Meal Price $ <input class="num" type="number" step="0.01" ng-model='main.mealPrice' required></h3>
+  <h3>Base Meal Price $ <input class="num" type="number" step="0.01" ng-model='scc.mealPrice' required></h3>
+  <h3>Tax Rate % <input class="num" type="number" ng-model='main.taxRate' required></h3>
+  <h3>Tip Percentage % <input class="num" type="number" ng-model='main.tipPer' required></h3>
 
   <div>
     <input class="btn btn-primary" type="submit" value="Submit">
@@ -16,8 +17,8 @@
 <section class="col-sm-12" id="cust-earn">
 <div id="customer-charges">
   <h2>Customer Charges</h2>
-  <h3>Subtotal: $ {{ taxPlusBase }}</h3>
-  <h3>Tip: $ {{ tip.toFixed(2) }}</h3>
-  <h3>Total: $ {{ total.toFixed(2) }}</h3>
+  <h3>Subtotal: {{ main.taxPlusBase | currency }}</h3>
+  <h3>Tip: {{ main.tip | currency }}</h3>
+  <h3>Total: {{ main.total | currency }}</h3>
 </div>
 </section>
