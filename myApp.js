@@ -37,10 +37,11 @@ angular.module("myApp", ['ngRoute'])
       console.log($rootScope.mealDetail);
 
       $scope.taxTotal();
-      $rootScope.mealCount++;
-      // $scope.mealCount++;
+
+      $scope.mealCount++;
 
       $rootScope.mealDetail.base = $scope.mealPrice;
+      $rootScope.mealCount++;
 
     };
 
@@ -59,8 +60,8 @@ angular.module("myApp", ['ngRoute'])
       $scope.taxRate = 0;
       $scope.tipPer = 0;
 
-      $rootScope.tip = total * $scope.mealDetail.tipPercent;
-      $rootScope.total = $scope.tip + total;
+      $rootScope.tip = total * $rootScope.mealDetail.tipPercent;
+      $rootScope.total = $rootScope.tip + total;
       $rootScope.tipTotal+= $rootScope.tip;
 
     };
