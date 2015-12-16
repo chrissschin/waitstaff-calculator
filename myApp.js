@@ -22,23 +22,33 @@ angular.module("myApp", ['ngRoute'])
 
     $scope.mealDetail = {};
 
-    $scope.mealPrice = 0;
-    $scope.taxRate = 0;
-    $scope.tipPer = 0;
+    $rootScope.mealDetail = {};
 
 
     $scope.submitForm = function() {
       $scope.mealDetail.base = $scope.mealPrice;
       $scope.mealDetail.tax = ($scope.taxRate / 100).toFixed(2);
       $scope.mealDetail.tipPercent = ($scope.tipPer / 100).toFixed(2);
-      console.log($scope.mealDetail);
+
+      $rootScope.mealDetail.base = $scope.mealPrice;
+      $rootScope.mealDetail.tax = ($scope.taxRate / 100).toFixed(2);
+      $rootScope.mealDetail.tipPercent = ($scope.tipPer / 100).toFixed(2);
+
+      console.log($rootScope.mealDetail);
+
       $scope.taxTotal();
-      $scope.mealCount++;
+      $rootScope.mealCount++;
+      // $scope.mealCount++;
+
+      $rootScope.mealDetail.base = $scope.mealPrice;
+
     };
 
     $scope.taxTotal = function() {
       var total = $scope.mealDetail.base * $scope.mealDetail.tax + $scope.mealDetail.base;
       $scope.tipAndTotal(total);
+
+      $rootScope.taxPlusBase = total;
     };
 
     $scope.tipAndTotal = function(total) {
@@ -49,11 +59,19 @@ angular.module("myApp", ['ngRoute'])
       $scope.taxRate = 0;
       $scope.tipPer = 0;
 
+      $rootScope.tip = total * $scope.mealDetail.tipPercent;
+      $rootScope.total = $scope.tip + total;
+      $rootScope.tipTotal+= $rootScope.tip;
+
     };
 
     //earnings info
     $scope.tipTotal = 0;
     $scope.mealCount = 0;
-    // $scope.averageTip = $scope.tipTotal/$scope.mealCount;
+
+    $rootScope.tipTotal = 0;
+    $rootScope.mealCount = 0;
+
+    // $rootScope.averageTip = $rootScope.tipTotal/$rootScope.mealCount;
 
   });
