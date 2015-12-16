@@ -2,17 +2,17 @@ angular.module("myApp", ['ngRoute'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
       templateUrl : 'home.html',
-      controller : 'mainCtrl'
+      controller : 'mainCtrl as home'
     })
 
     .when('/newmeal', {
       templateUrl : 'newmeal.html',
-      controller : 'mainCtrl'
+      controller : 'mainCtrl as meal'
     })
 
     .when('/myearnings', {
       templateUrl : 'myearnings.html',
-      controller : 'mainCtrl'
+      controller : 'mainCtrl as earn'
     })
 
     .otherwise('/');
@@ -22,7 +22,7 @@ angular.module("myApp", ['ngRoute'])
 
     $scope.mealDetail = {};
 
-    $rootScope.mealDetail = {};
+
 
 
     $scope.submitForm = function() {
@@ -30,9 +30,7 @@ angular.module("myApp", ['ngRoute'])
       $scope.mealDetail.tax = ($scope.taxRate / 100).toFixed(2);
       $scope.mealDetail.tipPercent = ($scope.tipPer / 100).toFixed(2);
 
-      $rootScope.mealDetail.base = $scope.mealPrice;
-      $rootScope.mealDetail.tax = ($scope.taxRate / 100).toFixed(2);
-      $rootScope.mealDetail.tipPercent = ($scope.tipPer / 100).toFixed(2);
+
 
       console.log($rootScope.mealDetail);
 
@@ -40,8 +38,7 @@ angular.module("myApp", ['ngRoute'])
 
       $scope.mealCount++;
 
-      $rootScope.mealDetail.base = $scope.mealPrice;
-      $rootScope.mealCount++;
+
 
     };
 
@@ -49,7 +46,7 @@ angular.module("myApp", ['ngRoute'])
       var total = $scope.mealDetail.base * $scope.mealDetail.tax + $scope.mealDetail.base;
       $scope.tipAndTotal(total);
 
-      $rootScope.taxPlusBase = total;
+      $scope.taxPlusBase = total;
     };
 
     $scope.tipAndTotal = function(total) {
@@ -60,9 +57,6 @@ angular.module("myApp", ['ngRoute'])
       $scope.taxRate = 0;
       $scope.tipPer = 0;
 
-      $rootScope.tip = total * $rootScope.mealDetail.tipPercent;
-      $rootScope.total = $rootScope.tip + total;
-      $rootScope.tipTotal+= $rootScope.tip;
 
     };
 
@@ -70,8 +64,6 @@ angular.module("myApp", ['ngRoute'])
     $scope.tipTotal = 0;
     $scope.mealCount = 0;
 
-    $rootScope.tipTotal = 0;
-    $rootScope.mealCount = 0;
 
     // $rootScope.averageTip = $rootScope.tipTotal/$rootScope.mealCount;
 
