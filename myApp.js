@@ -1,4 +1,4 @@
-angular.module("myApp", ['ui.router'])
+angular.module("myApp", ['ui.router','ngAnimate'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('home', {
@@ -35,30 +35,21 @@ angular.module("myApp", ['ui.router'])
     this.mealCount = 0;
     this.mealDetail = {};
 
-
-
-
     this.submitForm = function() {
       self.mealDetail.base = self.mealPrice;
       self.mealDetail.tax = (self.taxRate / 100).toFixed(2);
       self.mealDetail.tipPercent = (self.tipPer / 100).toFixed(2);
-
-
 
       console.log(self.mealDetail);
 
       self.taxTotal();
 
       self.mealCount++;
-
-
-
     };
 
     this.taxTotal = function() {
       var total = self.mealDetail.base * self.mealDetail.tax + self.mealDetail.base;
       self.tipAndTotal(total);
-
       self.taxPlusBase = total;
     };
 
@@ -72,13 +63,5 @@ angular.module("myApp", ['ui.router'])
       self.averageTip = self.tipTotal/(self.mealCount + 1);
 
     };
-
-
-
-
-
-  })
-  .controller("secondCtrl", function(){
-    this.mealPrice = 50;
 
   });
