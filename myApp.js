@@ -1,21 +1,31 @@
-angular.module("myApp", ['ngRoute'])
-  .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/', {
+angular.module("myApp", ['ui.router'])
+  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+    .state('home', {
+      url : '/',
+      templateUrl : 'main.html'
+    })
+
+    .state('home.about', {
+      url : 'about',
       templateUrl : 'home.html',
       // controller : 'mainCtrl as home'
     })
 
-    .when('/newmeal', {
+    .state('home.newmeal', {
+      url : 'newmeal',
       templateUrl : 'newmeal.html',
-      controller : 'secondCtrl as scc'
+      // controller : 'secondCtrl as scc'
     })
 
-    .when('/myearnings', {
+    .state('home.myearnings', {
+      url : 'myearnings',
       templateUrl : 'myearnings.html',
       // controller : 'mainCtrl as earn'
     })
 
-    .otherwise('/');
+
+    $urlRouterProvider.otherwise('/');
   }])
   .controller("mainCtrl", function() {
     console.log("hello");
